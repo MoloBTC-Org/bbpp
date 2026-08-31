@@ -1,37 +1,71 @@
-# Bitcoin Best Practice Protocol — Document Set (Draft)
+# Bitcoin Best Practice Protocol (BBPP)
 
-**Created**: 2026-08-14  
-**Updated**: 2026-08-25  
-**Location**: `/home/workdir/artifacts/`
+**Framework first. Explicit client later. Identical consensus.**
 
-This folder contains the draft project documents for a purpose-driven alternative Bitcoin client (and overarching best-practice framework) grounded in the lean-ledger incentive model (node cost of permanent non-UTXO data + miner hashes-per-joule + software performance as amplifier).
+BBPP is a purpose-driven project for Bitcoin (and compatible UTXO PoW networks) that treats monetary efficiency as a measurable engineering goal:
 
-## Documents
+1. Permanent non-UTXO data is a tax on every validating node.
+2. Heavy, slow-propagating templates tax miner hashes-per-joule.
+3. Software performance amplifies both pressures; it does not invert them.
 
-| File | Description |
-|------|-------------|
-| **BBPP-00-Charter.md** | Founding charter: purpose, three-force incentive model, Transmutable Physics, refined Non-Goals, success metrics. Root reference. |
-| **BBPP-01-Participation-Standards.md** | Guidelines for contributors, reviewers, operators, and miners. |
-| **BBPP-02-Best-Practice-Guidelines.md** | Operational and engineering recommendations: default policy posture, performance priorities, template construction, measurement norms. |
-| **BBPP-03-Lessons-Learned-Alternative-Clients.md** | Practical lessons from alternative implementations. |
-| **BBPP-04-What-BBPP-Is-Is-Not.md** | One-page clarity statement. Positions BBPP as both future explicit client and overarching framework. |
-| **BBPP-Background-Client-Landscape.md** | Working reference: Core releases as successive clients + Knots, Bit-Block, **Miner-Oriented / Template-Sovereignty stacks (Knots+DATUM leader, BitcoinPR emerging)**, ProductionReady, Bitcoin Commons, Monetary Node, btcd, utreexod, Floresta, Neutrino, rbitcoin, boundary cases. Includes policy-vs-consensus (SV2) distinction and node markets by primary purpose. |
-| **BBPP-README.md** | This index. |
+Differentiation is policy, defaults, and operations — not a new coin.
 
-## Current Strategic Picture (2026-08-17)
+License: [Bitcoin Sovereign Open Source License (BSOL) v1.0](LICENSE.md)
 
-- **Purpose is locked**: physics-backed monetary efficiency, unilateral, consensus-compatible, transmutable across PoW payment networks.
-- **Hard fork is a non-goal** for the primary BBPP line; hard forking is welcomed for others.
-- **Node markets clarified**: Proof-of-Work / template-sovereignty nodes (Knots+DATUM leader; BitcoinPR emerging) are the primary fit for the hashes-per-joule efficiency vision. Home validating and enterprise wallet-backend nodes serve different markets and are documented accordingly.
-- **Policy vs Consensus**: SV2 alone delivers dynamic policy; DATUM-style designs are required for dynamic consensus signalling by hashrate.
-- **Bit-Block** remains the closest shipping expression of strong physics-backed defaults + flexibility on the general policy axis.
-- BBPP functions as an overarching best-practice framework that can recognise and encourage aligned implementations while still planning its own explicit client in due course.
-- Near-term work remains documentation and clarity; code shipping is further down the line.
+---
 
-## Next Suggested Steps
+## Start here
 
-1. Optional light note in Lessons Learned on BitcoinPR and the miner-oriented taxonomy.
-2. Continue monitoring Knots+DATUM, BitcoinPR, Bit-Block, Monetary Node, and related efforts.
-3. Only after the purpose and landscape documents are stable, begin concrete default-value tables or modular architecture sketches.
+| Document | Role |
+|----------|------|
+| [Charter](docs/00-charter.md) | Purpose, three-force model, Transmutable Physics, Non-Goals |
+| [What BBPP is / is not](docs/04-what-bbpp-is-is-not.md) | One-page boundary |
+| [Client landscape](docs/background-client-landscape.md) | Core releases as successive clients; Knots, Bit-Block, miner stacks, Monetary Node, Purity, etc. |
+| [Best-practice guidelines](docs/02-best-practice-guidelines.md) | Defaults, templates, measurement |
+| [Participation standards](docs/01-participation-standards.md) | How to contribute |
+| [Lessons learned](docs/03-lessons-learned-alternative-clients.md) | What other implementations taught |
 
-All documents remain drafts. Claims of “best practice” stay tethered to the stated incentive model and to measurable outcomes. Best practice includes choosing the best fit for one’s actual purpose.
+Research (not Charter):
+
+- [Quantum for non-math people](research/quantum-physics-barriers.md) — self-custody hygiene, Shor vs Grover, resource floor, BIP map; not Charter
+- [Template generation / DMTG](research/template-generation-dmtg.md) — sovereign vs supplier vs carousel
+
+---
+
+## Status (2026-08-29)
+
+- Purpose is locked. Hard fork is a **non-goal** for the primary line; hard-forking is welcomed for anyone who chooses that path.
+- Shipping closest allies on the *policy* axis: **Bit-Block V2** (strong defaults + flexibility). On the *template-sovereignty* axis: **Knots + DATUM**.
+- This repository is documentation. `src/` is reserved. No BBPP binary yet.
+- Quantum / PQ signature work stays under `research/`. BIP assigned ≠ activated.
+
+---
+
+## Repo layout
+
+```
+docs/        normative project documents
+research/    adjacent maps (quantum, template markets) — do not change the Charter
+scripts/     measurement helpers (empty)
+src/         reserved for a future client
+```
+
+Full tree: see `REPO-TREE.md` in the working set, or the `docs/roadmap.md` once published.
+
+---
+
+## Non-goals (short)
+
+- Changing Bitcoin consensus or launching a ticker.
+- Maximising arbitrary on-chain data.
+- Claiming other clients are illegitimate for different defaults.
+
+Boundary cases (BIP-110 / Purity / BCH / possible Blake2b) are documented in the landscape. They are not this line.
+
+---
+
+## Contribute
+
+Read [Participation standards](docs/01-participation-standards.md).  
+Open an issue for landscape updates (new client, new release, measured policy change).  
+Do not send consensus-change PRs to this repo.
