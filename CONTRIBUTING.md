@@ -4,8 +4,8 @@ This repository is documentation-first. Code under `src/` is reserved and empty 
 
 ## Before you open a PR
 
-1. Read the [Charter](docs/00-charter.md). If the change does not serve the three-force model, it does not belong here.
-2. Read [Participation standards](docs/01-participation-standards.md) — that document is the full bar.
+1. Read the [Charter](docs/BBPP-00-Charter.md). If the change does not serve the three-force model, it does not belong here.
+2. Read [Participation standards](docs/BBPP-01-Participation-Standards.md) — that document is the full bar.
 3. Decide the folder:
    - Normative claim (purpose, defaults, non-goals) → `docs/`
    - Map, measurement, or adjacent physics → `research/`
