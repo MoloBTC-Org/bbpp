@@ -18,12 +18,13 @@ License: [Bitcoin Sovereign Open Source License (BSOL) v1.0](LICENSE.md)
 
 | Document | Role |
 |----------|------|
-| [Charter](docs/00-charter.md) | Purpose, three-force model, Transmutable Physics, Non-Goals |
-| [What BBPP is / is not](docs/04-what-bbpp-is-is-not.md) | One-page boundary |
-| [Client landscape](docs/background-client-landscape.md) | Core releases as successive clients; Knots, Bit-Block, miner stacks, Monetary Node, Purity, etc. |
-| [Best-practice guidelines](docs/02-best-practice-guidelines.md) | Defaults, templates, measurement |
-| [Participation standards](docs/01-participation-standards.md) | How to contribute |
-| [Lessons learned](docs/03-lessons-learned-alternative-clients.md) | What other implementations taught |
+| [Charter](docs/BBPP-00-Charter.md) | Purpose, three-force model, Transmutable Physics, Non-Goals |
+| [What BBPP is / is not](docs/BBPP-04-What-BBPP-Is-Is-Not.md) | One-page boundary |
+| [Client landscape](docs/BBPP-Background-Client-Landscape.md) | Core releases as successive clients; Knots, Bit-Block, miner stacks, Monetary Node, Purity, etc. |
+| [Best-practice guidelines](docs/BBPP-02-Best-Practice-Guidelines.md) | Defaults, templates, measurement |
+| [Participation standards](docs/BBPP-01-Participation-Standards.md) | How to contribute |
+| [Lessons learned](docs/BBPP-03-Lessons-Learned-Alternative-Clients.md) | What other implementations taught |
+| [Roadmap](docs/roadmap.md) | Now / next / later / not-on-roadmap |
 
 Research (not Charter):
 
@@ -32,10 +33,11 @@ Research (not Charter):
 
 ---
 
-## Status (2026-08-29)
+## Status (2026-08-31)
 
 - Purpose is locked. Hard fork is a **non-goal** for the primary line; hard-forking is welcomed for anyone who chooses that path.
-- Shipping closest allies on the *policy* axis: **Bit-Block V2** (strong defaults + flexibility). On the *template-sovereignty* axis: **Knots + DATUM**.
+- Shipping closest allies on the *policy* axis: **Bit-Block V2** (strong defaults + flexibility; LND backend guides 30 Aug). On the *template-sovereignty* axis: **Knots + DATUM**.
+- OCEAN (30 Aug) remains SHA-256; DATUM stays client-facing (Core, non-BIP110 Knots, ProductionReady when shipped). Efficiency-oriented new clients still need an explicit test path.
 - This repository is documentation. `src/` is reserved. No BBPP binary yet.
 - Quantum / PQ signature work stays under `research/`. BIP assigned ≠ activated.
 
@@ -50,7 +52,7 @@ scripts/     measurement helpers (empty)
 src/         reserved for a future client
 ```
 
-Full tree: see `REPO-TREE.md` in the working set, or the `docs/roadmap.md` once published.
+See [docs/roadmap.md](docs/roadmap.md).
 
 ---
 
@@ -66,6 +68,6 @@ Boundary cases (BIP-110 / Purity / BCH / possible Blake2b) are documented in the
 
 ## Contribute
 
-Read [Participation standards](docs/01-participation-standards.md).  
+Read [Participation standards](docs/BBPP-01-Participation-Standards.md) and [CONTRIBUTING.md](CONTRIBUTING.md).  
 Open an issue for landscape updates (new client, new release, measured policy change).  
 Do not send consensus-change PRs to this repo.
