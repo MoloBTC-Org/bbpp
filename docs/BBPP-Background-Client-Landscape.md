@@ -2,7 +2,7 @@
 ## Treating Major Core Releases as Competing Clients + Alternative Implementations
 
 **Status**: Working reference document  
-**Date**: 2026-08-14 (updated 2026-08-25)  
+**Date**: 2026-08-14 (updated 2026-08-30)  
 **Purpose**: Provide a structured view of the open field for protocol development and alternative-client evaluation. Major Bitcoin Core releases are listed as successive “clients” with distinct consensus-readiness and policy postures. Independent and derivative clients (including the Monetary Node proposal) are included for comparative study.
 
 This document supports the Bitcoin Best Practice Protocol (BBPP) charter work. It is descriptive, not normative.
@@ -73,8 +73,9 @@ BBPP’s physics-locked efficiency vision prioritises the **Proof-of-Work / Temp
 - **Differentiation**: Strict anti-spam defaults by design (`datacarriersize=0` enforced, rejection of non-Bitcoin tokens and asset overlay protocols); fee subtraction from amounts enabled by default; full customisability retained (as flexible as Knots); enhanced input sanitization; optional faster IBD via Libbitcoin-style trusted checkpoint; SeedSigner-style high-entropy dice-roll wallet generation; rebranded GUI.
 - **V2 (23 August 2026)**: Diffuses the inherited Knots “timebomb” (hard ~2-year expiry that bricks the node) into a one-time friendly upgrade reminder — the node continues validating; no forced shutdown. Lighter, less aggressive chainstate/LevelDB maintenance (fewer unnecessary rewrites). Cleaner version/copyright display. Builds for macOS, Windows, and Linux.
 - **Companion project**: Knots Legacy — fork of the latest non-RDTS Knots version maintained for operators remaining on the original (non-PoW-transition) Bitcoin chain.
-- **Status**: V2 publicly available via bit-block.org and GitHub (DimiH2025/Bit-Block); solo spare-time development.
-- **Relevance to BBPP**: Currently the closest shipping expression of the “strongest physics-backed defaults + retained user flexibility” posture on the policy axis while remaining fully consensus-compatible and unilateral. The V2 timebomb diffusion is a clear win for unilateral user choice. Explicitly aimed at the legacy chain. Valuable reference implementation and natural ally for an overarching BBPP framework.
+- **Lightning backend (2026-08-30)**: Published LND-on-Bit-Block guides for Windows, macOS, and Linux (plain .txt at bit-block.org/bit-block-bitcoin-development/; full text also posted by @Dimi_h). Stated purpose: Bit-Block remains the anti-spam L1 client; Lightning is “Bitcoin used as money.” Backend requirements called out honestly: `server=1`, `txindex=1`, ZMQ rawblock/rawtx; cookie RPC by default; LND uses its own aezeed seed, separate from the Bit-Block wallet. Windows has no `-daemon` (NSSM or leave the window open).
+- **Status**: V2 publicly available via bit-block.org and GitHub (DimiH2025/Bit-Block); solo spare-time development. LN guides are documentation only — LND is still Lightning Labs software.
+- **Relevance to BBPP**: Currently the closest shipping expression of the “strongest physics-backed defaults + retained user flexibility” posture on the policy axis while remaining fully consensus-compatible and unilateral. The V2 timebomb diffusion is a clear win for unilateral user choice. Explicitly aimed at the legacy chain. The LN guides treat L2 payments as the monetary use-case sitting *on* a lean L1 node — aligned with BBPP — but `txindex=1` is a real disk/reindex tax. Do not pretend a Lightning backend is free under the three-force model. Valuable reference implementation and natural ally for an overarching BBPP framework.
 
 ### 3.1c Miner-Oriented / Template-Sovereignty Implementations
 
@@ -94,7 +95,7 @@ These are the nodes and gateways deliberately built so that the operator control
 - **Type**: 501(c)(3) nonprofit (Jimmy Song, Samson Mow, Parker Lewis, John Ratcliff et al.) funding a conservative third client.
 - **Stated goals**: Preserve monetary properties; reduce Core monopoly; stability over feature expansion; build on Core rather than clean-room rewrite.
 - **Status** (mid-2026): Funding / education organisation + design principles; client still early.
-- **Relevance**: Explicitly monetary-conservative and anti-monopoly. Philosophical neighbour to BBPP.
+- **Relevance**: Explicitly monetary-conservative and anti-monopoly. Philosophical neighbour to BBPP. OCEAN (2026-08-30) stated DATUM will support ProductionReady when it ships.
 
 ### 3.3 Bitcoin Commons / BLVM (@BtcCommons / BTCDecoded)
 - **Type**: Formal mathematical specification (Orange Paper) + Rust-based alternative full-node stack + forkable governance framework.
@@ -175,11 +176,15 @@ When assessing any client (including future BBPP releases) against the lean-ledg
 - Core 28.0 (Full-RBF default) and Core 30.0 (large datacarrier default) are the two clearest recent policy inflection points inside the reference implementation.
 - Knots remains the primary large-scale policy alternative currently deployed.
 - **Bit-Block V2 (2026-08-23)** remains the closest shipping client to the BBPP “strongest defaults + retained flexibility” posture on the policy axis. V2 diffuses the Knots timebomb into a warning and lightens chainstate maintenance. Natural ally for the overarching BBPP framework.
-- **Miner-oriented / template-sovereignty stack**: Knots + DATUM Gateway is the clear production leader. BitcoinPR is the strongest integrated experimental pure-Rust alternative with native mining gateway + Datum client.
+- **Bit-Block + LND (2026-08-30)**: Official home-node Lightning guides (Win/macOS/Linux). Positions LN as the monetary L2 on an anti-spam L1. Record the `txindex=1` cost; LND seed ≠ node wallet seed. Complementary to OCEAN’s Lightning-*payout* work — different layer (home channels vs pool settlement).
+- **Miner-oriented / template-sovereignty stack**: Knots + DATUM Gateway remains the production leader. BitcoinPR is the strongest integrated experimental pure-Rust alternative with native mining gateway + Datum client. Shared template markets (PyBLOCK suppliers + carousel) are in `research/template-generation-dmtg.md` — complementary to DATUM, not a substitute for miner-owned consensus signalling.
+- **OCEAN / DATUM, 2026-08-30**: Luke Dashjr separated from OCEAN (resigned Chairman, CTO, director). Pool statement: remains on SHA-256; no PoW change; DATUM stays the product; pool-side open source promised early next year; Lightning payouts / SV2 cooperation continue. Mark Artymko: DATUM already talks to Core and any valid node including non-BIP110 Knots; ProductionReady to be supported when it ships. Knots-on-legacy-chain maintenance is the open risk he named, not DATUM’s client interface.
+- **moloBTC question on that thread** (the right BBPP question): as efficiency-oriented alternative clients appear, will the gateway make a best effort to keep them first-class rather than treating “Core + later ProductionReady” as the only supported pair? Protocol-oriented efficiency is client-agnostic only if the pool actually tests new nodes. Record the ask; do not treat the reply as a guarantee for unshipped clients.
 - SV2 Job Declaration alone delivers dynamic *policy*; DATUM-style designs are required for dynamic *consensus* signalling by hashrate.
 - Monetary Node published a strip demonstration (194,863 blocks, 0 merkle failures, tens of GB removed). Still draft; Knots patchset not started. Strongest current empirical work on post-validation bulk reduction.
 - **Bitcoin Purity** is the documented SHA256d hard-fork continuation of permanent RDTS on the BIP-110 minority lineage. Short-term package (permanent RDTS + ASERT + reorg parking + no replay protection) is a coherent exit path. Later 32 MB / script-change roadmap diverges from BBPP scarcity economics.
 - The BIP-110 / Declaration of Bitcoin Independence / Purity / possible BLAKE2b-PoW trajectories remain the primary hard-fork boundary cases. BBPP documents them; it does not follow them.
+- **Quantum / post-quantum** is adjacent research, not a client in this landscape. See `research/quantum-physics-barriers.md` (BIP-360 P2MR, BIP-361 sunset draft, SHRINCS, Hourglass). No PQ output is consensus. Do not treat BIP assignment as activation.
 - utreexod + Floresta attack live-state cost; rbitcoin optimises the enterprise/wallet-backend market.
 
 This landscape is expected to evolve. Update this reference as new major releases ship, new clients gain measurable share, or proposals move from draft to production binaries.
