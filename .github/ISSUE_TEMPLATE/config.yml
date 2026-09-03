@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Charter
+    url: https://github.com/MoloBTC-Org/bbpp/blob/main/docs/BBPP-00-Charter.md
+    about: Purpose and Non-Goals live here, not in a blank issue.
+  - name: Landscape
+    url: https://github.com/MoloBTC-Org/bbpp/blob/main/docs/BBPP-Background-Client-Landscape.md
+    about: Check the client map before opening a duplicate update.
