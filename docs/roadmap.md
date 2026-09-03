@@ -4,9 +4,10 @@ Living list. Not a promise of dates. Not a consensus roadmap.
 
 ## Now
 
-- Public README (no workdir paths).
+- Public README with working `docs/BBPP-*` links.
 - Tree: `docs/` normative, `research/` adjacent, `src/` reserved empty.
-- Landscape current through Bit-Block V2, Monetary Node strip demo, Bitcoin Purity boundary case.
+- Landscape current through Bit-Block V2 + LND guides, OCEAN/DATUM 30 Aug, Monetary Node strip, Bitcoin Purity boundary.
+- Governance page + issue/PR templates + GitHub topics list.
 
 ## Next (documentation)
 
