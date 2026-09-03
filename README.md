@@ -4,9 +4,12 @@
 
 A purpose-driven project for Bitcoin (and other UTXO proof-of-work payment networks) that treats *monetary efficiency* as something you can measure, not a slogan.
 
-License: [BSOL v1.0](LICENSE.md)  
+License: [BSOL v1.0](LICENSE.md) · [Governance](GOVERNANCE.md) · [Contributing](CONTRIBUTING.md)  
 Org: [MoloBTC-Org](https://github.com/MoloBTC-Org)  
 Status: documentation repository. `src/` is reserved. No BBPP binary yet.
+
+**GitHub About:** *Framework and future client for monetary-efficient Bitcoin nodes. Identical consensus. Policy and defaults may differ. Documentation first.*  
+**Topics:** `bitcoin` · `bitcoin-protocol` · `full-node` · `bitcoin-knots` · `mining` · `proof-of-work` · `documentation` · `open-source` · `self-custody` · `sovereignty`
 
 ---
 
@@ -66,6 +69,7 @@ OCEAN (30 Aug 2026): remains SHA-256; no PoW change; DATUM talks to Core and any
 bbpp/
 ├── README.md                 ← this file
 ├── LICENSE.md
+├── GOVERNANCE.md
 ├── CONTRIBUTING.md
 ├── docs/                     normative
 │   ├── BBPP-00-Charter.md

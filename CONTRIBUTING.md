@@ -32,3 +32,5 @@ This repository is documentation-first. Code under `src/` is reserved and empty 
 - If a default changes, say what an operator sets to opt out.
 
 Questions: use the `question` issue template. Do not treat Grok or any model as a substitute for the documents.
+
+Governance overview: [GOVERNANCE.md](GOVERNANCE.md). Pull requests should use the template under `.github/pull_request_template.md`.
