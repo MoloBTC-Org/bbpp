@@ -2,72 +2,109 @@
 
 **Framework first. Explicit client later. Identical consensus.**
 
-BBPP is a purpose-driven project for Bitcoin (and compatible UTXO PoW networks) that treats monetary efficiency as a measurable engineering goal:
+A purpose-driven project for Bitcoin (and other UTXO proof-of-work payment networks) that treats *monetary efficiency* as something you can measure, not a slogan.
 
-1. Permanent non-UTXO data is a tax on every validating node.
-2. Heavy, slow-propagating templates tax miner hashes-per-joule.
-3. Software performance amplifies both pressures; it does not invert them.
-
-Differentiation is policy, defaults, and operations — not a new coin.
-
-License: [Bitcoin Sovereign Open Source License (BSOL) v1.0](LICENSE.md)
+License: [BSOL v1.0](LICENSE.md)  
+Org: [MoloBTC-Org](https://github.com/MoloBTC-Org)  
+Status: documentation repository. `src/` is reserved. No BBPP binary yet.
 
 ---
 
-## Start here
+## Three forces (the Charter in one screen)
 
-| Document | Role |
-|----------|------|
-| [Charter](docs/BBPP-00-Charter.md) | Purpose, three-force model, Transmutable Physics, Non-Goals |
-| [What BBPP is / is not](docs/BBPP-04-What-BBPP-Is-Is-Not.md) | One-page boundary |
-| [Client landscape](docs/BBPP-Background-Client-Landscape.md) | Core releases as successive clients; Knots, Bit-Block, miner stacks, Monetary Node, Purity, etc. |
-| [Best-practice guidelines](docs/BBPP-02-Best-Practice-Guidelines.md) | Defaults, templates, measurement |
-| [Participation standards](docs/BBPP-01-Participation-Standards.md) | How to contribute |
-| [Lessons learned](docs/BBPP-03-Lessons-Learned-Alternative-Clients.md) | What other implementations taught |
-| [Roadmap](docs/roadmap.md) | Now / next / later / not-on-roadmap |
+1. **Node.** Permanent non-UTXO data is a tax on every future validating node.
+2. **Miner.** Heavy, slow-propagating templates tax hashes-per-joule (stale work, junk in the block).
+3. **Software.** Performance amplifies both pressures. It does not invert them.
 
-Research (not Charter):
-
-- [Quantum for non-math people](research/quantum-physics-barriers.md) — self-custody hygiene, Shor vs Grover, resource floor, BIP map; not Charter
-- [Template generation / DMTG](research/template-generation-dmtg.md) — sovereign vs supplier vs carousel
+Policy, defaults, and operations may differ. Consensus on the primary line does not.
 
 ---
 
-## Status (2026-08-31)
+## Read in this order
 
-- Purpose is locked. Hard fork is a **non-goal** for the primary line; hard-forking is welcomed for anyone who chooses that path.
-- Shipping closest allies on the *policy* axis: **Bit-Block V2** (strong defaults + flexibility; LND backend guides 30 Aug). On the *template-sovereignty* axis: **Knots + DATUM**.
-- OCEAN (30 Aug) remains SHA-256; DATUM stays client-facing (Core, non-BIP110 Knots, ProductionReady when shipped). Efficiency-oriented new clients still need an explicit test path.
-- This repository is documentation. `src/` is reserved. No BBPP binary yet.
-- Quantum / PQ signature work stays under `research/`. BIP assigned ≠ activated.
+| # | Document | What it settles |
+|---|----------|-----------------|
+| 1 | [Charter](docs/BBPP-00-Charter.md) | Purpose, Transmutable Physics, Non-Goals, success metrics |
+| 2 | [What BBPP is / is not](docs/BBPP-04-What-BBPP-Is-Is-Not.md) | One-page boundary |
+| 3 | [Client landscape](docs/BBPP-Background-Client-Landscape.md) | Core-as-successive-clients; Knots, Bit-Block, DATUM, ProductionReady, Monetary Node, Purity, compact-state stacks |
+| 4 | [Best-practice guidelines](docs/BBPP-02-Best-Practice-Guidelines.md) | Defaults, templates, measurement, wallet hygiene |
+| 5 | [Participation standards](docs/BBPP-01-Participation-Standards.md) | Who may change what |
+| 6 | [Lessons learned](docs/BBPP-03-Lessons-Learned-Alternative-Clients.md) | What other implementations already taught |
+| 7 | [Roadmap](docs/roadmap.md) | Now / next / later / not-on-roadmap |
+
+Then [CONTRIBUTING.md](CONTRIBUTING.md) if you are opening an issue or PR.
+
+### Research (not Charter)
+
+These files must not rewrite purpose or consensus.
+
+| File | What it is |
+|------|------------|
+| [Quantum for non-math people](research/quantum-physics-barriers.md) | Locked-box picture, Shor vs Grover, hygiene checklist, BIP-360/361/SHRINCS map. Capacity ≠ security. |
+| [Template generation / DMTG](research/template-generation-dmtg.md) | Sovereign vs supplier vs carousel templates. DATUM ≠ SV2 Job Declaration. |
+| [research/README.md](research/README.md) | Folder rule: adjacent maps only |
 
 ---
 
-## Repo layout
+## Where this line sits (2026-09-03)
+
+| Axis | Closest shipping expression | Note |
+|------|-----------------------------|------|
+| Policy defaults + flexibility | **Bit-Block V2** | Knots fork; strong anti-spam defaults; LND backend guides (30 Aug). `txindex=1` is a real disk tax. |
+| Template sovereignty | **Knots + DATUM** | Miner-built templates; pool coordinates rewards. BitcoinPR is the integrated experimental Rust neighbour. |
+| Conservative third client | **ProductionReady** | Not shipped. OCEAN said DATUM will support it when it does. |
+| Hard-fork boundary | BIP-110 / **Bitcoin Purity** / possible Blake2b | Documented. Not this line. |
+| Compact state | utreexod, Floresta, Neutrino | Different market (live-state cost). |
+
+OCEAN (30 Aug 2026): remains SHA-256; no PoW change; DATUM talks to Core and any valid node including non-BIP-110 Knots. Efficiency-oriented *new* clients are first-class only if someone actually tests them. That ask is recorded; it is not a guarantee.
+
+---
+
+## Repository layout
 
 ```
-docs/        normative project documents
-research/    adjacent maps (quantum, template markets) — do not change the Charter
-scripts/     measurement helpers (empty)
-src/         reserved for a future client
+bbpp/
+├── README.md                 ← this file
+├── LICENSE.md
+├── CONTRIBUTING.md
+├── docs/                     normative
+│   ├── BBPP-00-Charter.md
+│   ├── BBPP-01-Participation-Standards.md
+│   ├── BBPP-02-Best-Practice-Guidelines.md
+│   ├── BBPP-03-Lessons-Learned-Alternative-Clients.md
+│   ├── BBPP-04-What-BBPP-Is-Is-Not.md
+│   ├── BBPP-Background-Client-Landscape.md
+│   └── roadmap.md
+├── research/                 adjacent, non-normative
+│   ├── quantum-physics-barriers.md
+│   ├── template-generation-dmtg.md
+│   ├── measurements/
+│   └── references/
+├── scripts/                  empty until we measure
+├── src/                      reserved
+└── .github/ISSUE_TEMPLATE/
+    ├── question.md
+    └── landscape-update.md
 ```
-
-See [docs/roadmap.md](docs/roadmap.md).
 
 ---
 
-## Non-goals (short)
+## Non-goals
 
-- Changing Bitcoin consensus or launching a ticker.
+- Changing Bitcoin consensus or launching a ticker on the primary line.
+- Selling a block-size hike as “quantum readiness.”
 - Maximising arbitrary on-chain data.
-- Claiming other clients are illegitimate for different defaults.
+- Treating other clients as illegitimate for different *defaults*.
 
-Boundary cases (BIP-110 / Purity / BCH / possible Blake2b) are documented in the landscape. They are not this line.
+Hard forks are welcomed for anyone who chooses that path. They are not BBPP.
 
 ---
 
 ## Contribute
 
-Read [Participation standards](docs/BBPP-01-Participation-Standards.md) and [CONTRIBUTING.md](CONTRIBUTING.md).  
-Open an issue for landscape updates (new client, new release, measured policy change).  
-Do not send consensus-change PRs to this repo.
+1. Read the [Charter](docs/BBPP-00-Charter.md).
+2. Open a [landscape-update](.github/ISSUE_TEMPLATE/landscape-update.md) issue for new clients, releases, or measured policy changes.
+3. Questions: [question template](.github/ISSUE_TEMPLATE/question.md).
+4. Do not send consensus-change PRs here.
+
+Claims of “best practice” stay tethered to the three-force model and to measurable outcomes. Best practice includes choosing the stack that fits the job (home node ≠ miner template node ≠ enterprise backend).
