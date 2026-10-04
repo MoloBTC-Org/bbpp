@@ -1,0 +1,3 @@
+# references/
+
+Links and short pointers to external repos. Do not vendor other clients here.
