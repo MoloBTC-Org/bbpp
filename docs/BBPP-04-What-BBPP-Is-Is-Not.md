@@ -34,9 +34,9 @@
 
 ### Relationship to Current Implementations
 
-Bit-Block (launched 2026-08-16 by Dimitri-H) is the closest currently shipping client to the BBPP “best set of defaults” posture on the policy axis: Knots-derived, `datacarriersize=0` enforced by default, rejection of non-Bitcoin token/asset overlays, full customisability retained, additional practical hardening and IBD options, and explicitly aimed at the legacy (non-hard-fork) chain.  
+Bit-Block **V3** (20 Sep 2026, Dimitri-H) is the closest shipping client to the BBPP default posture on the policy axis: Knots-derived, SHA-256 line, `datacarriersize=0` with `datacarrier` left on, `rejectparasites` / `rejecttokens` on, seven BIP-110-as-policy `antispam*` flags on (three of those switches already lived passively in the tree; four are new), `datum=1` for job-2, full operator override. Not a BBPP binary and not a consensus fork of this chain.
 
-BBPP treats such implementations as allies and potential reference points. The framework can sit above or alongside them as a shared language of purpose, metrics, and engagement standards while the project continues toward its own explicit client when the time is right.
+BBPP treats such implementations as allies. The framework can sit above them as a shared language of purpose and metrics. An explicit BBPP client is not required if an existing client already serves the jobs.
 
 ---
 

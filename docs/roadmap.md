@@ -1,36 +1,46 @@
 # Roadmap
 
 Living list. Not a promise of dates. Not a consensus roadmap.  
-Updated: 2026-09-04
+Updated: 2026-10-01
 
-## Done (foundation)
+## Done (on GitHub — early Sep shape)
 
-- Public README with working `docs/BBPP-*` paths.
-- Tree: `docs/` normative, `research/` adjacent, `src/` reserved empty.
-- Research notes landed: quantum self-custody; template generation / DMTG.
-- Governance page, CONTRIBUTING, issue templates, PR template, GitHub topics list.
-- Landscape through Bit-Block V2 + LND guides, OCEAN/DATUM 30 Aug, Monetary Node strip, Bitcoin Purity boundary.
+- Charter 00–04, Landscape through 30 Aug, governance, issue templates.
+- Research: quantum self-custody; DMTG.
+- `src/` reserved empty. No BBPP binary.
 
-## Now (keep current)
+## Done in workdir (upload this wave)
 
-- Refresh Landscape when a client, pool interface, or measured default actually changes.
-- Refresh the quantum note only when resource estimates or BIP *status* change — not when a BIP number is assigned.
-- Keep README / About / topics accurate. Do not let the front door drift behind the files.
+- `docs/BBPP-07-Which-Node-For-Which-Job.md`
+- `docs/BBPP-06-Default-Value-Table.md` — V3 / Knots Legacy flags from Dimitri 29 Sep–1 Oct
+- `examples/job1-bit-block.conf` + `examples/job1-knots.conf`
+- `research/ultimate-client-scope.md` + `research/live-vs-deadweight-classifier.md`
+- Landscape + README + BBPP-04 pointed at Bit-Block **V3**, Monetary Node store, Libbitcoin as job 3 only
 
-## Next (documentation, still no code)
+## Now
 
-- Default-value table: policy knobs only (datacarrier, mempool, relay), each with the operator opt-out.
-- One-page “which node for which job” card pulled from Landscape §1.2 (home / miner-template / enterprise / compact-state).
-- Optional: Lessons Learned line on BitcoinPR + DATUM client-agnostic claim (ask recorded, not a guarantee).
+- Copy the first wave onto GitHub.
+- Optional: which three of the seven `antispam*` flags were already in-tree (Dimitri: “some (3) lived passively”). Does not block upload.
 
-## Later (only after Next)
+## Next (after the wave is live)
 
-- Measurement helpers under `scripts/`.
-- First code in `src/` — defaults / configuration layer, not a clean-room node.
+- Job-2 addendum: `datum=1` + `zmqpubtemplatehint*` on the same datadir as §2 filters.
+- One measured GBT / mempool snapshot on a named V3 binary.
+- Folder `README.md` under `src/`, `scripts/`, `measurements/`, `references/` (hygiene).
 
-## Explicitly not on this roadmap
+## Hold (`_push/2026-09-06/`)
+
+BBPP-08–11 narratives, dummy profile, operator sheet, unrun scripts.
+
+## Later
+
+- `scripts/` after they have been run.
+- First `src/` payload = defaults layer, not a clean-room node. Skip `src/` entirely if Bit-Block + this table already serve jobs 1–2.
+
+## Not on this roadmap
 
 - Hard fork of the primary line.
-- 32 MB blocks as “quantum readiness.”
-- Shipping a binary because `src/` exists.
-- Championing coin freezes or BIP-361-style sunsets.
+- 32 MB as “quantum readiness.”
+- Shipping a binary because a folder exists.
+- Charter tense rewrite.
+- Libbitcoin as a job-1 starting point.
